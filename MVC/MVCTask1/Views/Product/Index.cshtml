@@ -1,0 +1,30 @@
+﻿@{
+	@model List<product>
+	ViewData["Title"] = "Products";
+}
+<h1 class="text-center">@ViewData["Title"]</h1>
+<table class="table table-bordered">
+	<thead>
+		<tr class="text-center text-capitalize">
+			<th class="table-danger">@nameof(product.Id)</th>
+			<th class="table-danger">@nameof(product.Name)</th>
+			<th class="table-danger">@nameof(product.Price)</th>
+			<th class="table-danger">@nameof(product.Description)</th>
+			<th class="table-danger">@nameof(product.Img)</th>
+			<th class="table-danger">See More.</th>
+		</tr>
+	</thead>
+@foreach (var product in Model)
+{
+	<tbody>
+			<tr>
+				<td>@product.Id</td>
+				<td>@product.Name</td>
+				<td>@product.Price</td> 
+				<td>@product.Description</td>
+				<td><img src="/images/@product.Img" alt="@product.Name" width="75" height="75"/></td>
+				<td class="text-center"><a href="/product/details?Id=@product.Id">Details</a></td>
+			</tr>
+	</tbody>
+}
+</table>
